@@ -1,3 +1,21 @@
+# ============================================
+# 1. Task Description
+# Perform exploratory data analysis on Netflix movie data to:
+#   • filter to Movies from the 1990s (1990 <= release_year < 2000),
+#   • visualize the distribution of movie durations in that decade,
+#   • save an approximate most frequent duration into `duration`,
+#   • count how many Action movies are "short" (< 90 minutes) and
+#     save the result into `short_movie_count`.
+#
+# 2. Topics Covered
+# - pandas filtering and boolean masks (decade subsetting)
+# - exploratory plotting (histogram with matplotlib)
+# - counting via iteration and via vectorized boolean sums
+# - chainable, readable DataFrame operations
+# ============================================
+
+# 3. Python Script
+
 # Importing pandas and matplotlib
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -47,3 +65,15 @@ print(short_movie_count)
 
 # A quicker way of counting values in a column is to use .sum() on the desired column
 # (action_movies_1990s["duration"] < 90).sum()
+
+# ============================================
+# 4. Additional Notes
+# - If you prefer a *programmatic* mode estimate (instead of eyeballing),
+#   you could bin durations with numpy and take the bin center with max count,
+#   or use pandas' value_counts().idxmax() on integer-rounded durations:
+#       duration = movies_1990s["duration"].round().value_counts().idxmax()
+# - Vectorized counting with `.sum()` on a boolean mask is the idiomatic
+#   and efficient approach in pandas; prefer it over iterrows() for scale.
+# - Consider handling missing durations:
+#       movies_1990s = movies_1990s.dropna(subset=["duration"])
+# ============================================
