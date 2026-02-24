@@ -35,7 +35,7 @@ print(best_math_schools)
 schools["total_SAT"] = schools["average_math"] + schools["average_reading"] + schools["average_writing"]
 
 # Who are the top 10 performing schools?
-top_10_schools = schools.sort_values("total_SAT", ascending=False)[["school_name", "total_SAT"]].head(10)
+top_10_schools = schools[["school_name", "total_SAT"]].sort_values("total_SAT", ascending = False).head(10)
 print(top_10_schools)
 
 # Which NYC borough has the highest standard deviation for total_SAT?
