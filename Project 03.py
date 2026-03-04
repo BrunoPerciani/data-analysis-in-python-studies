@@ -1,3 +1,22 @@
+# ============================================
+# 1. Task Description
+# Analyze Nobel Prize winner data to answer:
+# 1) Most commonly awarded gender and birth country.
+# 2) Decade with highest ratio of US-born Nobel winners to total winners.
+# 3) Decade–category with highest proportion of female laureates.
+# 4) First woman to receive a Nobel Prize and in which category.
+# 5) Individuals/organizations who have won more than one Nobel Prize.
+#
+# 2. Topics Covered
+# - Reading CSV data with pandas
+# - Value counts and Boolean flags
+# - Groupby with proportions (mean of Boolean)
+# - Decade bucketing
+# - Basic faceted line plots (optional visualization)
+# ============================================
+
+# 3. Python Script
+
 # Loading in required libraries
 import pandas as pd
 import seaborn as sns
@@ -50,3 +69,20 @@ repeats = counts[counts >= 2].index
 repeat_list = list(repeats)
 
 print("\n The repeat winners are :", repeat_list)
+
+# Variables requested by the prompt are:
+# top_gender (str), top_country (str), max_decade_usa (int),
+# max_female_dict (dict with one key-value pair),
+# first_woman_name (str), first_woman_category (str), repeat_list (list of str)
+
+# ============================================
+# 4. Additional Notes
+# - Proportions are computed as the mean of Boolean flags within each group.
+# - Decades are computed by flooring the year to the nearest decade:
+#     decade = floor(year/10)*10
+# - If multiple rows tie for the maximum in any step, idxmax() will return
+#   the first occurrence; this matches the requirement that max_female_dict
+#   contains a single (decade → category) pair.
+# - Optional relplot() calls produce quick trend visuals, but they are not
+#   required to compute the answers.
+# ============================================
