@@ -12,9 +12,19 @@ Rather than focusing only on isolated syntax examples, the emphasis is on **usin
 
 ## 📚 Repository structure
 
-The repository is organized according to the main topics covered throughout the track. It currently includes materials related to Introduction to Python, Intermediate Python, Data Manipulation with Pandas, Data Joining with Pandas, Introduction to Statistics in Python, and Introduction to Data Visualization with Seaborn.
+The repository is organized by topic or course, reflecting the structure of the learning track. It includes queries related to:
 
-Each folder represents a specific course or stage of the learning path. Inside them, the scripts register exercises, examples, and practical applications developed during the studies.
+01. Introduction to SQL;
+02. Intermediate SQL;
+03. Joining Data in SQL;
+04. Data Manipulation in SQL;
+05. PostgreSQL Summary Stats and Window Functions;
+06. Functions for Manipulating Data in PostgreSQL;
+07. Introduction to Statistics;
+08. Exploratory Data Analysis in SQL;
+09. Data-Driven Decision Making in SQL;
+
+Each file represents a specific topic or course and can be read independently as a reference.
 
 ## ▶️ How to use
 
