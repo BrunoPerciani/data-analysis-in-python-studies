@@ -18,11 +18,11 @@ The repository is organized by topic or course, reflecting the structure of the 
 02. Intermediate Python;
 03. Data Manipulation with Pandas;
 04. Data Joining with Pandas;
-05. PostgreSQL Summary Stats and Window Functions;
-06. Functions for Manipulating Data in PostgreSQL;
-07. Introduction to Statistics;
-08. Exploratory Data Analysis in SQL;
-09. Data-Driven Decision Making in SQL;
+05. Introduction to Statistics in Python;
+06. Introduction to Data Visualization in Seaborn;
+07. Exploratory Data Analysis in Python;
+08. Sampling in Python;
+09. Hypothesis Testing in Python;
 
 Each file represents a specific topic or course and can be read independently as a reference.
 
