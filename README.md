@@ -14,10 +14,10 @@ Rather than focusing only on isolated syntax examples, the emphasis is on **usin
 
 The repository is organized by topic or course, reflecting the structure of the learning track. It includes queries related to:
 
-01. Introduction to SQL;
-02. Intermediate SQL;
-03. Joining Data in SQL;
-04. Data Manipulation in SQL;
+01. Introduction to Python;
+02. Intermediate Python;
+03. Data Manipulation with Pandas;
+04. Data Joining with Pandas;
 05. PostgreSQL Summary Stats and Window Functions;
 06. Functions for Manipulating Data in PostgreSQL;
 07. Introduction to Statistics;
