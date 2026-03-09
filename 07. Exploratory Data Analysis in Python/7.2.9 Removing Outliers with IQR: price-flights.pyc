@@ -1,0 +1,39 @@
+# ============================================
+# 1. Task Description
+# Identify and remove outliers in the "Price" column using the IQR rule.
+# Keep only rows where Price is within [Q1 - 1.5*IQR, Q3 + 1.5*IQR].
+# ============================================
+
+# 2. Topics Covered
+# - Quantiles and IQR (interquartile range)
+# - Computing outlier thresholds
+# - Boolean filtering to remove outliers
+# ============================================
+
+# 3. Python Script
+
+# Find the 75th and 25th percentiles
+price_seventy_fifth = planes["Price"].quantile(0.75)
+price_twenty_fifth = planes["Price"].quantile(0.25)
+
+# Calculate iqr
+prices_iqr = price_seventy_fifth - price_twenty_fifth
+
+# Calculate the thresholds
+upper = price_seventy_fifth + (1.5 * prices_iqr)
+lower = price_twenty_fifth - (1.5 * prices_iqr)
+
+# Subset the data
+planes = planes[(planes["Price"] > lower) & (planes["Price"] < upper)]
+
+print(planes["Price"].describe())
+
+# ============================================
+# 4. Additional Notes
+# Removing outliers
+# - The IQR rule is a robust method to flag extreme values:
+#   Outlier if Price < Q1 - 1.5*IQR or Price > Q3 + 1.5*IQR.
+# - This removes extreme tickets that could skew analyses (e.g., mean).
+# - Consider business context before removing outliers; sometimes they
+#   are legitimate observations (e.g., premium/last-minute fares).
+# ============================================
