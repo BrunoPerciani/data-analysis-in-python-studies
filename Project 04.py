@@ -1,3 +1,21 @@
+# ============================================
+# 1. Task Description
+# Explore Los Angeles crime data to answer:
+# 1) Which hour has the highest frequency of crimes? (peak_crime_hour)
+# 2) Which area has the largest frequency of night crimes (10pm–3:59am)?
+#    (peak_night_crime_location)
+# 3) What is the distribution of crimes by victim age group? (victim_ages)
+#
+# 2. Topics Covered
+# - String parsing for time features
+# - Boolean filtering for time-of-day slices
+# - Groupby counts and sorting
+# - Binning ages into custom ranges with pd.cut()
+# - Basic visual checks with seaborn
+# ============================================
+
+# 3. Python Script
+
 # Import required libraries
 import pandas as pd
 import numpy as np
@@ -51,3 +69,14 @@ crimes["Age Bracket"] = pd.cut(crimes["Vict Age"],
 # Find the category with the largest frequency
 victim_ages = crimes["Age Bracket"].value_counts()
 print(victim_ages)
+
+# ============================================
+# 4. Additional Notes
+# - TIME OCC is in 24-hour format; slicing the first two characters obtains the hour.
+# - Night-time window is defined as 22:00–03:59 (hours 22, 23, 0, 1, 2, 3).
+# - pd.cut() creates categorical bins for victim age groups; reindex ensures
+#   the printed Series follows the intended label order.
+# - peak_crime_hour can be determined programmatically via value_counts().idxmax()
+#   or confirmed visually with the count plot.
+# - Be mindful of potential missing or malformed values in Vict Age or TIME OCC.
+# ============================================
