@@ -1,6 +1,8 @@
 # Before you can start any analysis, you need to confirm that the data is accurate and reflects what you expect to see. 
 # It is known that there are some issues with the `production_data` table, and the data team have provided the following data description. 
-# Write a query to ensure the data matches the description provided, including identifying and cleaning all invalid values. You must match all column names and description criteria.
+# Write a query to ensure the data matches the description provided, including identifying and cleaning all invalid values. 
+# You must match all column names and description criteria.
+#
 # - You should start with the data in the file "production_data.csv".
 # - Your output should be a DataFrame named clean_data.
 # - All column names and values should match the table below.
