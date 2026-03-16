@@ -1,6 +1,6 @@
 # You want to understand how the supplier type and quantity of materials affect the final product attributes.
 # Calculate the average `product_quality_score` and `pigment_quantity` grouped by `raw_material_supplier`.
-#
+
 # - You should start with the data in the file 'production_data.csv'. 
 # - Your output should be a DataFrame named aggregated_data.
 # - It should include the three columns: `raw_material_supplier`, `avg_product_quality_score`, and `avg_pigment_quantity`.
