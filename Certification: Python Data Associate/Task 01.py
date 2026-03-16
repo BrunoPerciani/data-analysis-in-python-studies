@@ -17,33 +17,34 @@
 # | product_quality_score | Continuous. Overall quality score of the final product (rating on a scale of 1 to 10). Missing values should be replaced with mean, rounded to 2 decimal places. |
 
 import pandas as pd
-df = pd.read_csv('production_data.csv')
 
-df = df.dropna(subset = ['batch_id'])
+df1 = pd.read_csv('production_data.csv')
 
-df['production_date'] = pd.to_datetime(df['production_date'], errors = 'coerce') 
-df = df.dropna(subset = ['production_date'])
+df1 = df1.dropna(subset = ['batch_id'])
+
+df1['production_date'] = pd.to_datetime(df1['production_date'], errors = 'coerce') 
+df1 = df1.dropna(subset = ['production_date'])
 
 supplier_map = {1: 'national_supplier', 2: 'international_supplier'} 
-df['raw_material_supplier'] = df['raw_material_supplier'].map(supplier_map)
-df['raw_material_supplier'].fillna('national_supplier', inplace = True)
+df1['raw_material_supplier'] = df1['raw_material_supplier'].map(supplier_map)
+df1['raw_material_supplier'].fillna('national_supplier', inplace = True)
 
 valid_pigments = ['type_a', 'type_b', 'type_c']
-df['pigment_type'] = df['pigment_type'].astype(str).str.lower().str.strip()
-df['pigment_type'] = df['pigment_type'].apply( lambda x: x if x in valid_pigments else 'other')
+df1['pigment_type'] = df1['pigment_type'].astype(str).str.lower().str.strip()
+df1['pigment_type'] = df1['pigment_type'].apply( lambda x: x if x in valid_pigments else 'other')
 
-median_pigment = df['pigment_quantity'].median()
-df['pigment_quantity'] = df['pigment_quantity'].apply(lambda x: x if 1 <= x <= 100 else np.nan)
-df['pigment_quantity'].fillna(median_pigment, inplace = True)
+median_pigment = df1['pigment_quantity'].median()
+df1['pigment_quantity'] = df1['pigment_quantity'].apply(lambda x: x if 1 <= x <= 100 else np.nan)
+df1['pigment_quantity'].fillna(median_pigment, inplace = True)
 
-mean_mixing = round(df['mixing_time'].mean(), 2)
-df['mixing_time'].fillna(mean_mixing, inplace = True)
+mean_mixing = round(df1['mixing_time'].mean(), 2)
+df1['mixing_time'].fillna(mean_mixing, inplace = True)
 
 valid_speeds = ['Low', 'Medium', 'High']
-df['mixing_speed'] = df['mixing_speed'].apply(lambda x: x if x in valid_speeds else 'Not Specified')
+df1['mixing_speed'] = df1['mixing_speed'].apply(lambda x: x if x in valid_speeds else 'Not Specified')
 
-mean_quality = round(df['product_quality_score'].mean(), 2)
-df['product_quality_score'].fillna(mean_quality, inplace = True)
+mean_quality = round(df1['product_quality_score'].mean(), 2)
+df1['product_quality_score'].fillna(mean_quality, inplace = True)
 
-clean_data = df.copy()
+clean_data = df1.copy()
 clean_data
