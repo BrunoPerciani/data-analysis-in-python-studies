@@ -1,3 +1,23 @@
+# ============================================
+# 1. Task Description
+# Perform a hypothesis test to determine whether the mean number of goals
+# scored in women’s international soccer matches differs from that of men’s,
+# using Official FIFA World Cup matches since 2002-01-01 and assuming
+# independence across matches. Because goals are count data and typically
+# non-normal, apply a non-parametric Wilcoxon–Mann–Whitney test.
+# Store the p-value and the decision ("reject" / "fail to reject") at
+# a 10% significance level in:
+#     result_dict = {"p_val": p_val, "result": result}
+#
+# 2. Topics Covered
+# - Data filtering by date and competition
+# - Constructing a per-match goals metric
+# - Non-parametric two-sample testing (Mann–Whitney U)
+# - One dictionary output with p-value and decision
+# ============================================
+
+# 3. Python Script
+
 # Imports
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -57,3 +77,24 @@ else:
     result = "fail to reject"
 
 result_dict = {"p_val": p_val, "result": result}
+
+# ============================================
+# 4. Additional Notes
+# Hypotheses (two-sided):
+# - H0: The distributions (and, in many interpretations, central tendencies)
+#       of goals per match are the same for men’s and women’s World Cups.
+# - H1: They differ.
+#
+# Rationale:
+# - Goals per match are integer counts with skew and limited support. The
+#   Wilcoxon–Mann–Whitney (rank-sum) test is robust to non-normality and
+#   compares central tendencies via ranks.
+#
+# Assumptions:
+# - Independence of matches (team-form/serial effects ignored, as specified).
+# - Ordinal/continuous response (goals are discrete counts but acceptable for WMW).
+# - Two-sided alternative since we are testing for any difference, not direction.
+#
+# Output:
+# - result_dict contains the p-value (float) and the decision string using α = 0.10.
+# ============================================
